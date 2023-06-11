@@ -24,6 +24,11 @@ import androidx.lifecycle.ViewModelStoreOwner;
 public class ItemMoreItemViewProvider implements IItemViewProvider {
     private OverScrollModel mOverScrollModel;
 
+    private boolean needRoteArrowToRight = true;
+    private boolean needRoteArrowToLeft = true;
+
+    private boolean needOpenDetailPage = true;
+
     @Override
     public View getView(Context context, HomeData homeData) {
         View view = LayoutInflater.from(context)
@@ -50,11 +55,6 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
         return view;
     }
 
-    private boolean needRoteToRight = true;
-    private boolean needRoteToLeft = true;
-
-    private boolean needOpenDetailPage = true;
-
     //
     private void updateOverscrollView(ImageView ivArrow, TextView tvMoreNote, int dx) {
         int goNextPageTargetPx = Util.dp2Px(ivArrow.getContext(), 120);
@@ -65,15 +65,15 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
         boolean roteLeftArrow = dx > roteArrowTargetPx;
         boolean roteRightArrow = dx < roteArrowTargetPx;
 
-        if (roteLeftArrow && needRoteToRight) {
-            needRoteToRight = false;
-            needRoteToLeft = true;
+        if (roteLeftArrow && needRoteArrowToRight) {
+            needRoteArrowToRight = false;
+            needRoteArrowToLeft = true;
             rotateImageView(ivArrow, 0, 180);
         }
 
-        if (roteRightArrow && needRoteToLeft) {
-            needRoteToRight = true;
-            needRoteToLeft = false;
+        if (roteRightArrow && needRoteArrowToLeft) {
+            needRoteArrowToRight = true;
+            needRoteArrowToLeft = false;
             rotateImageView(ivArrow, 180, 0);
         }
 
