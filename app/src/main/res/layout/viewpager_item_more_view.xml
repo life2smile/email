@@ -38,6 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:ems="1"
-        android:text="释放查看更多" />
+        android:text="滑动查看更多" />
     <!--    </LinearLayout>-->
 </LinearLayout>

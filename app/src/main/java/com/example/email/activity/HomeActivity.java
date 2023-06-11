@@ -18,7 +18,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 public class HomeActivity extends AppCompatActivity {
-    private BounceBackViewPager mBannerViewPager;
+    private ViewPager mBannerViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
 
     private HomeViewModel mHomeViewModel;
@@ -68,12 +68,13 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 IndicatorHelper.updateStatus(position);
             }
-        });
-        mBannerViewPager.setOverscrollListener(new BounceBackViewPager.OverScrollListener() {
+
             @Override
-            public void onScroll(float dx) {
-                System.out.println("-------------ac == " + dx);
-                mOverScrollModel.getOverscrollDx().setValue(dx);
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (position == mViewPagerAdapter.getCount() - 2) {
+                    mOverScrollModel.getPositionOffset().setValue(positionOffset);
+                    mOverScrollModel.getPositionOffsetPixels().setValue(positionOffsetPixels);
+                }
             }
         });
     }
