@@ -25,8 +25,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private OverScrollModel mOverScrollModel;
 
-    private boolean detailPageOpened = false;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        detailPageOpened = false;
     }
 
     private void initViews() {
@@ -59,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         mHomeViewModel.requestData();
+        getLifecycle().addObserver(mOverScrollModel);
     }
 
 
@@ -71,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                // 倒数第二张图片实现弹回效果
                 if (position == mViewPagerAdapter.getCount() - 2) {
                     mOverScrollModel.getPositionOffset().setValue(positionOffset);
                     mOverScrollModel.getPositionOffsetPixels().setValue(positionOffsetPixels);

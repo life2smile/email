@@ -2,6 +2,7 @@ package com.example.email.view.viewpageritem;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -37,51 +38,62 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
                     updateOverscrollView(ivArrow, tvMoreNote, offset);
                 }
             });
+            mOverScrollModel.getLifeCycleEvent().observeForever(new Observer<String>() {
+                @Override
+                public void onChanged(String event) {
+                    if (event.equals("onResume")) {
+                        needOpenDetailPage = true;
+                    }
+                }
+            });
         }
         return view;
     }
 
-    private boolean roteToRight = false;
-    private boolean roteToLeft = false;
+    private boolean needRoteToRight = true;
+    private boolean needRoteToLeft = true;
 
     private boolean needOpenDetailPage = true;
 
     //
     private void updateOverscrollView(ImageView ivArrow, TextView tvMoreNote, int dx) {
-        int targetPx = Util.dp2Px(ivArrow.getContext(), 120);
+        int goNextPageTargetPx = Util.dp2Px(ivArrow.getContext(), 120);
+        int roteArrowTargetPx = Util.dp2Px(ivArrow.getContext(), 80);
+        tvMoreNote.setText(dx > roteArrowTargetPx ? "释放查看更多" : "滑动查看更多");
 
-        if (dx > targetPx && !roteToRight) {
-            roteToRight = true;
-            roteToLeft = false;
-            Animation rotateAnimation = new RotateAnimation(0, 180,
-                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnimation.setFillAfter(true);
-            rotateAnimation.setDuration(10);
-            rotateAnimation.setRepeatCount(0);
-            rotateAnimation.setInterpolator(new LinearInterpolator());
-            rotateAnimation.setDetachWallpaper(true);
-            ivArrow.startAnimation(rotateAnimation);
+        boolean goNextPage = dx > goNextPageTargetPx;
+        boolean roteLeftArrow = dx > roteArrowTargetPx;
+        boolean roteRightArrow = dx < roteArrowTargetPx;
+
+        if (roteLeftArrow && needRoteToRight) {
+            needRoteToRight = false;
+            needRoteToLeft = true;
+            rotateImageView(ivArrow, 0, 180);
         }
 
-        if (dx < targetPx && !roteToLeft) {
-            roteToRight = false;
-            roteToLeft = true;
-            Animation rotateAnimation = new RotateAnimation(180, 0,
-                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnimation.setFillAfter(true);
-            rotateAnimation.setDuration(10);
-            rotateAnimation.setRepeatCount(0);
-            rotateAnimation.setInterpolator(new LinearInterpolator());
-            rotateAnimation.setDetachWallpaper(true);
-            ivArrow.startAnimation(rotateAnimation);
+        if (roteRightArrow && needRoteToLeft) {
+            needRoteToRight = true;
+            needRoteToLeft = false;
+            rotateImageView(ivArrow, 180, 0);
         }
 
-        tvMoreNote.setText(dx > targetPx ? "释放查看更多" : "滑动查看更多");
-        if (dx > targetPx && needOpenDetailPage) {
+        if (goNextPage && needOpenDetailPage) {
             needOpenDetailPage = false;
             Context context = ivArrow.getContext();
             Intent intent = new Intent(context, DetailActivity.class);
             context.startActivity(intent);
+
         }
+    }
+
+    private void rotateImageView(ImageView imageView, int fromDegrees, int toDegrees) {
+        Animation rotateAnimation = new RotateAnimation(fromDegrees, toDegrees,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimation.setFillAfter(true);
+        rotateAnimation.setDuration(200);
+        rotateAnimation.setRepeatCount(0);
+        rotateAnimation.setInterpolator(new LinearInterpolator());
+        rotateAnimation.setDetachWallpaper(true);
+        imageView.startAnimation(rotateAnimation);
     }
 }
