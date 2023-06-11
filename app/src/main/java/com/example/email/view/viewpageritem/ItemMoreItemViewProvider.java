@@ -57,7 +57,7 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
 
     //
     private void updateOverscrollView(ImageView ivArrow, TextView tvMoreNote, int dx) {
-        int goNextPageTargetPx = Util.dp2Px(ivArrow.getContext(), 120);
+        int goNextPageTargetPx = Util.dp2Px(ivArrow.getContext(), 140);
         int roteArrowTargetPx = Util.dp2Px(ivArrow.getContext(), 80);
         tvMoreNote.setText(dx > roteArrowTargetPx ? "释放查看更多" : "滑动查看更多");
 
