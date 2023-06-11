@@ -9,7 +9,6 @@ import com.example.email.viewmodel.bean.HomeData;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 
 public class ViewPagerAdapter extends PagerAdapter {
     private List<HomeData> mHomeDataList;
@@ -32,6 +31,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         container.addView(view);
         return view;
     }
+
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {

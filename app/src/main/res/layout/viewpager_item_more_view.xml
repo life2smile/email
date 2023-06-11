@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingLeft="16dp">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_banner_item"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_weight="10"-->
+    <!--        android:scaleType="fitXY" />-->
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/ll_more_layout"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:paddingStart="16dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        tools:visibility="visible">-->
 
     <ImageView
         android:id="@+id/iv_arrow"
@@ -19,5 +39,5 @@
         android:layout_marginLeft="8dp"
         android:ems="1"
         android:text="释放查看更多" />
-
+    <!--    </LinearLayout>-->
 </LinearLayout>

@@ -40,5 +40,8 @@ public class HomeViewModel extends AndroidViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
+        if (mHomeData.getValue() != null) {
+            mHomeData.getValue().clear();
+        }
     }
 }
