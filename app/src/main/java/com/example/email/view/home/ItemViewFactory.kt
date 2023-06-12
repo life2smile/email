@@ -1,11 +1,11 @@
-package com.example.email.view.home.viewpageritem
+package com.example.email.view.home
 
 import android.content.Context
 import android.view.View
 import com.example.email.bean.HomeData
 import com.example.email.bean.ViewType
-import com.example.email.view.detail.viewpageritem.ItemMoreItemViewProvider
-import com.example.email.view.home.ItemImageItemViewProvider
+import com.example.email.view.home.viewpageritem.ItemImageItemViewProvider
+import com.example.email.view.home.viewpageritem.ItemMoreItemViewProvider
 
 class ViewProvider {
     companion object ViewFactory {

@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 
 import com.example.email.R;
 import com.example.email.bean.DetailData;
-import com.example.email.view.viewpager.PagerAdapter;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.viewpager.widget.PagerAdapter;
 
 public class DetailViewPagerAdapter extends PagerAdapter {
     private List<DetailData> mDetailDataList;

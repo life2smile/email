@@ -1,4 +1,4 @@
-package com.example.email.view.home;
+package com.example.email.view.home.viewpageritem;
 
 import android.content.Context;
 import android.content.Intent;
@@ -86,6 +86,7 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
                 Context context = ivArrow.getContext();
                 Intent intent = new Intent(context, DetailActivity.class);
                 context.startActivity(intent);
+                return;
             }
         }
 

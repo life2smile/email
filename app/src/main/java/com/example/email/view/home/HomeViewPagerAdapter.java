@@ -3,7 +3,6 @@ package com.example.email.view.home;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.email.view.home.viewpageritem.ViewProvider;
 import com.example.email.bean.HomeData;
 import com.example.email.view.viewpager.PagerAdapter;
 

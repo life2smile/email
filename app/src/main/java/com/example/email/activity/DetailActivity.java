@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.example.email.R;
 import com.example.email.bean.DetailData;
 import com.example.email.view.detail.adapter.DetailViewPagerAdapter;
-import com.example.email.view.viewpager.ViewPager;
 import com.example.email.viewmodel.DetailViewModel;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
@@ -19,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager.widget.ViewPager;
 
 public class DetailActivity extends AppCompatActivity {
     private DetailViewModel mDetailViewModel;
@@ -53,6 +53,7 @@ public class DetailActivity extends AppCompatActivity {
 
         mAdapter = new DetailViewPagerAdapter();
         mViewPager.setAdapter(mAdapter);
+        mTableLayout.setupWithViewPager(mViewPager);
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {

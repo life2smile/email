@@ -1,4 +1,4 @@
-package com.example.email.view.home;
+package com.example.email.view.home.viewpageritem;
 
 import android.content.Context;
 import android.view.LayoutInflater;
