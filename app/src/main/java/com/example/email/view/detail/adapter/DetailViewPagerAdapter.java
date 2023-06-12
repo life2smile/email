@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.example.email.R;
 import com.example.email.bean.DetailData;
+import com.example.email.view.detail.viewpageritem.PagerViewProvider;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ public class DetailViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View view = LayoutInflater.from(container.getContext()).inflate(R.layout.view_pager_recycler_view, container, true);
+        View view = new PagerViewProvider().getView(container.getContext(), mDetailDataList.get(position));
+        container.addView(view);
         return view;
     }
-
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {

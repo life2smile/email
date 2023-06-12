@@ -13,7 +13,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.email.R;
 import com.example.email.util.Util;
 import com.example.email.bean.HomeData;
-import com.example.email.view.detail.viewpageritem.IItemViewProvider;
 
 public class ItemImageItemViewProvider implements IItemViewProvider {
     @Override

@@ -16,13 +16,13 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:background="@mipmap/detail_app_bar_bg">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="220dp"
             app:collapsedTitleGravity="left|center_vertical"
             app:collapsedTitleTextAppearance="@style/CollapsingToolbarLayoutTitle"
             app:expandedTitleMarginEnd="12dp"

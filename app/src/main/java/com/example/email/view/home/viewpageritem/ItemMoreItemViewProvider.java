@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.example.email.R;
 import com.example.email.activity.DetailActivity;
 import com.example.email.util.Util;
-import com.example.email.view.detail.viewpageritem.IItemViewProvider;
 import com.example.email.viewmodel.OverScrollModel;
 import com.example.email.bean.HomeData;
 
