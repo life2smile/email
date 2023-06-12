@@ -8,7 +8,7 @@ import com.example.email.view.viewpager.ViewPager;
 import com.example.email.view.viewpager.ViewPagerAdapter;
 import com.example.email.viewmodel.HomeViewModel;
 import com.example.email.viewmodel.OverScrollModel;
-import com.example.email.viewmodel.bean.HomeData;
+import com.example.email.bean.HomeData;
 
 import java.util.List;
 
@@ -42,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     private void initViews() {
         mViewPagerAdapter = new ViewPagerAdapter();
         mBannerViewPager = findViewById(R.id.viewpager_banner);
+        mBannerViewPager.needLastPageBound(true);
         mBannerViewPager.setAdapter(mViewPagerAdapter);
     }
 

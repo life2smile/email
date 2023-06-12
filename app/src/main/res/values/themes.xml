@@ -2,4 +2,8 @@
 <resources>
 
     <style name="Theme.Email" parent="android:Theme.Material.Light.NoActionBar" />
+    <!--CollapsingToolbarLayout标题大小-->
+    <style name="CollapsingToolbarLayoutTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

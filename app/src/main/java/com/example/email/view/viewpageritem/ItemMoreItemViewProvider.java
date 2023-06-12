@@ -2,7 +2,6 @@ package com.example.email.view.viewpageritem;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,7 +14,7 @@ import com.example.email.R;
 import com.example.email.activity.DetailActivity;
 import com.example.email.util.Util;
 import com.example.email.viewmodel.OverScrollModel;
-import com.example.email.viewmodel.bean.HomeData;
+import com.example.email.bean.HomeData;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -28,6 +27,8 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
     private boolean needRoteArrowToLeft = true;
 
     private boolean needOpenDetailPage = true;
+
+    private boolean releaseWithGoNextPage = false;
 
     @Override
     public View getView(Context context, HomeData homeData) {
@@ -60,21 +61,31 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
         int goNextPageTargetPx = Util.dp2Px(ivArrow.getContext(), 140);
         int roteArrowTargetPx = Util.dp2Px(ivArrow.getContext(), 80);
         tvMoreNote.setText(dx > roteArrowTargetPx ? "释放查看更多" : "滑动查看更多");
-
+        if (dx > roteArrowTargetPx) {
+            releaseWithGoNextPage = true;
+        }
         boolean goNextPage = dx > goNextPageTargetPx;
-        boolean roteLeftArrow = dx > roteArrowTargetPx;
-        boolean roteRightArrow = dx < roteArrowTargetPx;
+        boolean roteArrowToRight = dx > roteArrowTargetPx;
+        boolean roteArrowToLeft = dx < roteArrowTargetPx;
 
-        if (roteLeftArrow && needRoteArrowToRight) {
+        if (roteArrowToRight && needRoteArrowToRight) {
             needRoteArrowToRight = false;
             needRoteArrowToLeft = true;
             rotateImageView(ivArrow, 0, 180);
         }
 
-        if (roteRightArrow && needRoteArrowToLeft) {
+        if (roteArrowToLeft && needRoteArrowToLeft) {
             needRoteArrowToRight = true;
             needRoteArrowToLeft = false;
             rotateImageView(ivArrow, 180, 0);
+
+            if (releaseWithGoNextPage && needOpenDetailPage) {
+                releaseWithGoNextPage = false;
+                needOpenDetailPage = false;
+                Context context = ivArrow.getContext();
+                Intent intent = new Intent(context, DetailActivity.class);
+                context.startActivity(intent);
+            }
         }
 
         if (goNextPage && needOpenDetailPage) {
@@ -82,7 +93,6 @@ public class ItemMoreItemViewProvider implements IItemViewProvider {
             Context context = ivArrow.getContext();
             Intent intent = new Intent(context, DetailActivity.class);
             context.startActivity(intent);
-
         }
     }
 

@@ -2,8 +2,8 @@ package com.example.email.view.viewpageritem
 
 import android.content.Context
 import android.view.View
-import com.example.email.viewmodel.bean.HomeData
-import com.example.email.viewmodel.bean.ViewType
+import com.example.email.bean.HomeData
+import com.example.email.bean.ViewType
 
 class ViewProvider {
     companion object ViewFactory {

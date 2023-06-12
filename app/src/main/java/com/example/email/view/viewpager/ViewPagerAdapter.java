@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.email.view.viewpageritem.ViewProvider;
-import com.example.email.viewmodel.bean.HomeData;
+import com.example.email.bean.HomeData;
 
 import java.util.List;
 

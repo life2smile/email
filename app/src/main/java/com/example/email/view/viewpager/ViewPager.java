@@ -2395,6 +2395,11 @@ public class ViewPager extends ViewGroup {
         mMinimumVelocity = (int) (value * density);
     }
 
+    private boolean mNeedLastPageBound = false;
+
+    public void needLastPageBound(boolean needLastPageBound) {
+        this.mNeedLastPageBound = needLastPageBound;
+    }
 
     private int determineTargetPage(int currentPage, float pageOffset, int velocity, int deltaX) {
         int targetPage;
@@ -2414,8 +2419,10 @@ public class ViewPager extends ViewGroup {
         }
 
         //对最后一页做判断,实现弹性效果
-        if (deltaX < 0 && targetPage == getAdapter().getCount() - 1) {
-            return targetPage - 1;
+        if (mNeedLastPageBound) {
+            if (deltaX < 0 && targetPage == getAdapter().getCount() - 1) {
+                return targetPage - 1;
+            }
         }
         return targetPage;
     }

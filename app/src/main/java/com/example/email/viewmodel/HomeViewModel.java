@@ -2,8 +2,8 @@ package com.example.email.viewmodel;
 
 import android.app.Application;
 
-import com.example.email.viewmodel.bean.HomeData;
-import com.example.email.viewmodel.bean.ViewType;
+import com.example.email.bean.HomeData;
+import com.example.email.bean.ViewType;
 
 import java.util.ArrayList;
 import java.util.List;

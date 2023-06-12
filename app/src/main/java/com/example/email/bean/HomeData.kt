@@ -1,4 +1,4 @@
-package com.example.email.viewmodel.bean
+package com.example.email.bean
 
 
 enum class ViewType {

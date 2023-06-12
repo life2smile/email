@@ -12,7 +12,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.email.R;
 import com.example.email.util.Util;
-import com.example.email.viewmodel.bean.HomeData;
+import com.example.email.bean.HomeData;
 
 public class ItemImageItemViewProvider implements IItemViewProvider {
     @Override
