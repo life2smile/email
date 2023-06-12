@@ -12,26 +12,25 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 public class DetailViewModel extends AndroidViewModel {
-    private MutableLiveData<DetailData> mDetailData;
+    private MutableLiveData<List<DetailData>> mDetailData;
 
     public DetailViewModel(@NonNull Application application) {
         super(application);
         mDetailData = new MutableLiveData<>();
     }
 
-    public MutableLiveData<DetailData> getDetailData() {
+    public MutableLiveData<List<DetailData>> getDetailDataList() {
         return mDetailData;
     }
 
     public void requestData() {
-        List<String> tabs = new ArrayList<>();
-        tabs.add("清醒钟");
-        tabs.add("新鲜事");
-        tabs.add("解压室");
-        tabs.add("下饭菜");
-        tabs.add("微兴趣");
-        tabs.add("小剧场");
-        DetailData detailData = new DetailData(tabs);
-        getDetailData().postValue(detailData);
+        List<DetailData> tabs = new ArrayList<>();
+        tabs.add(new DetailData("清醒钟", "1"));
+        tabs.add(new DetailData("新鲜事", "1"));
+        tabs.add(new DetailData("解压室", "1"));
+        tabs.add(new DetailData("下饭菜", "1"));
+        tabs.add(new DetailData("微兴趣", "1"));
+        tabs.add(new DetailData("小剧场", "1"));
+        getDetailDataList().postValue(tabs);
     }
 }

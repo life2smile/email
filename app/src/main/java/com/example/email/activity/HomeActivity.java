@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.example.email.R;
 import com.example.email.util.IndicatorHelper;
 import com.example.email.view.viewpager.ViewPager;
-import com.example.email.view.viewpager.ViewPagerAdapter;
+import com.example.email.view.home.HomeViewPagerAdapter;
 import com.example.email.viewmodel.HomeViewModel;
 import com.example.email.viewmodel.OverScrollModel;
 import com.example.email.bean.HomeData;
@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class HomeActivity extends AppCompatActivity {
     private ViewPager mBannerViewPager;
-    private ViewPagerAdapter mViewPagerAdapter;
+    private HomeViewPagerAdapter mHomeViewPagerAdapter;
 
     private HomeViewModel mHomeViewModel;
 
@@ -40,10 +40,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        mViewPagerAdapter = new ViewPagerAdapter();
+        mHomeViewPagerAdapter = new HomeViewPagerAdapter();
         mBannerViewPager = findViewById(R.id.viewpager_banner);
         mBannerViewPager.needLastPageBound(true);
-        mBannerViewPager.setAdapter(mViewPagerAdapter);
+        mBannerViewPager.setAdapter(mHomeViewPagerAdapter);
     }
 
     private void intData() {
@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
         mHomeViewModel.getHomeData().observe(this, new Observer<List<HomeData>>() {
             @Override
             public void onChanged(List<HomeData> dataList) {
-                mViewPagerAdapter.setDataList(dataList);
+                mHomeViewPagerAdapter.setDataList(dataList);
                 IndicatorHelper.generateIndicator(HomeActivity.this, dataList.size());
             }
         });
@@ -71,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 // 倒数第二张图片实现弹回效果
-                if (position == mViewPagerAdapter.getCount() - 2) {
+                if (position == mHomeViewPagerAdapter.getCount() - 2) {
                     mOverScrollModel.getPositionOffset().setValue(positionOffset);
                     mOverScrollModel.getPositionOffsetPixels().setValue(positionOffsetPixels);
                 }

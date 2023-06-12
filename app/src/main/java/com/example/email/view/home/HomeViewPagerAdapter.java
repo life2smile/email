@@ -1,16 +1,17 @@
-package com.example.email.view.viewpager;
+package com.example.email.view.home;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.email.view.viewpageritem.ViewProvider;
+import com.example.email.view.home.viewpageritem.ViewProvider;
 import com.example.email.bean.HomeData;
+import com.example.email.view.viewpager.PagerAdapter;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 
-public class ViewPagerAdapter extends PagerAdapter {
+public class HomeViewPagerAdapter extends PagerAdapter {
     private List<HomeData> mHomeDataList;
 
     public void setDataList(List<HomeData> dataList) {

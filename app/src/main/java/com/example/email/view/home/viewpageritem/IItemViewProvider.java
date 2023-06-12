@@ -1,4 +1,4 @@
-package com.example.email.view.viewpageritem;
+package com.example.email.view.home.viewpageritem;
 
 import android.content.Context;
 import android.view.View;
