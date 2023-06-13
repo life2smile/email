@@ -55,10 +55,10 @@
                     android:id="@+id/tv_day_update"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginStart="3dp"
                     android:layout_marginTop="40dp"
                     android:text="每日更新，网罗当日优质好文"
-                    android:textColor="#cccccc" />
+                    android:textColor="@color/white" />
             </RelativeLayout>
 
             <androidx.appcompat.widget.Toolbar

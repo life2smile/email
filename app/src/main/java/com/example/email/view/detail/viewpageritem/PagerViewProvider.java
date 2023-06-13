@@ -23,7 +23,7 @@ public class PagerViewProvider implements IItemViewProvider {
 
     @Override
     public View getView(Context context, DetailData detailData) {
-        View view = LayoutInflater.from(context).inflate(R.layout.view_pager_recycler_view, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.viewpager_recycler_view, null);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(context, 1));
         RecyclerViewAdapter adapter = new RecyclerViewAdapter();

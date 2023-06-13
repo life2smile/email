@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
@@ -24,6 +25,10 @@ public class ItemImageItemViewProvider implements IItemViewProvider {
     }
 
     private void updateView(View view, HomeData homeData) {
+        TextView titleTv = view.findViewById(R.id.tv_title);
+        TextView descTv = view.findViewById(R.id.tv_desc);
+        titleTv.setText(homeData.getTitle());
+        descTv.setText(homeData.getDesc());
         ImageView bannerIv = view.findViewById(R.id.iv_banner_item);
         RequestOptions options = RequestOptions
                 .bitmapTransform(new RoundedCorners(Util.dp2Px(view.getContext(), 24)));

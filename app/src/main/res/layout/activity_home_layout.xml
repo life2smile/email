@@ -9,26 +9,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:padding="5dp">
-
-            <LinearLayout
-                android:id="@+id/viewpager_indicator_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal" />
-        </RelativeLayout>
-
         <com.example.email.view.viewpager.ViewPager
             android:id="@+id/viewpager_banner"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:layout_marginTop="16dp"
             app:overscroll_translation="300dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
     </FrameLayout>
 
 </LinearLayout>
