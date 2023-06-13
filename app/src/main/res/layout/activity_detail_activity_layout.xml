@@ -23,93 +23,59 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            app:collapsedTitleGravity="left|center_vertical"
+            app:collapsedTitleGravity="center|center_vertical"
             app:collapsedTitleTextAppearance="@style/CollapsingToolbarLayoutTitle"
-            app:expandedTitleMarginEnd="12dp"
-            app:expandedTitleMarginStart="12dp"
-            app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutTitle"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:expandedTitleGravity="center|left"
+            app:expandedTitleMarginTop="80dp"
+            app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="每日专题">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tool_bar"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="120dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="16dp"
+                    android:width="60dp"
+                    android:height="30dp"
+                    android:background="@drawable/rect_shape_white_with_corner"
+                    android:gravity="center"
+                    android:text="订阅"
+                    android:textColor="#436b95" />
+
+                <TextView
+                    android:id="@+id/tv_day_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="40dp"
+                    android:text="每日更新，网罗当日优质好文"
+                    android:textColor="#cccccc" />
+            </RelativeLayout>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
-                android:layout_height="108dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="165dp"
                 app:layout_collapseMode="pin">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RelativeLayout
-                        android:id="@+id/rl_title_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/iv_back"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_alignParentLeft="true"
-                            android:src="@mipmap/arrow_left_transparency" />
-
-                        <TextView
-                            android:id="@+id/tv_final_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            tools:text="每日专题" />
-                    </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/rl_title_bar"
-                        android:layout_marginTop="24dp">
-
-                        <RelativeLayout
-                            android:id="@+id/rl_title_area"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tv_tool_bar_title"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:text="每日专题"
-                                android:textColor="@color/white"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginRight="16dp"
-                                android:width="60dp"
-                                android:height="30dp"
-                                android:background="@drawable/rect_shape_white_with_corner"
-                                android:gravity="center"
-                                android:text="订阅"
-                                android:textColor="#436b95" />
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/rl_title_area"
-                            android:layout_marginTop="8dp"
-                            android:text="每日更新，网罗当日优质好文"
-                            android:textColor="@color/white" />
-                    </RelativeLayout>
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@mipmap/arrow_left_transparency" />
 
             </androidx.appcompat.widget.Toolbar>
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         <com.google.android.material.tabs.TabLayout

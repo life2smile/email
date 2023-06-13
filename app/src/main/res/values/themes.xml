@@ -4,6 +4,15 @@
     <style name="Theme.Email" parent="android:Theme.Material.Light.NoActionBar" />
     <!--CollapsingToolbarLayout标题大小-->
     <style name="CollapsingToolbarLayoutTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--CollapsingToolbarLayout标题大小-->
+    <style name="ExpandedTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>
